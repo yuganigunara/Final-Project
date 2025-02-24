@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Meal Plans</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Theme Colors */
+        :root {
+            --primary-color: #2c3e50; /* Dark blue */
+            --secondary-color: #ecf0f1; /* Light gray */
+            --accent-color: #e74c3c; /* Red */
+            --light-color: #fdf8f2; /* Light beige */
+        }
+
+        /* Background */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #8ea6b8, #738589, #a9cce3, #7f8c8d); /* Multiple gradient colors */
+            background-size: 300% 300%; /* Expanded background for smooth motion */
+            color: #2c3e50; /* Text color for good readability */
+            padding: 20px 0; /* Adds padding */
+            margin: 0;
+            animation: gradientShift 10s ease-in-out infinite; /* Enhanced animation */
+        }
+
+        /* Keyframes for a smoother, visually appealing animation */
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%; /* Start at the left */
+            }
+            25% {
+                background-position: 50% 0%; /* Top middle */
+            }
+            50% {
+                background-position: 100% 50%; /* Right middle */
+            }
+            75% {
+                background-position: 50% 100%; /* Bottom middle */
+            }
+            100% {
+                background-position: 0% 50%; /* Back to the start */
+            }
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(44, 62, 80, 0.95); /* Slightly darker transparent background */
+            border-bottom: 3px solid var(--accent-color); /* Thicker bottom border for emphasis */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+            position: sticky; /* Stays at the top while scrolling */
+            top: 0;
+            z-index: 1000; /* Ensures the navbar stays on top */
+            padding: 20px 0; /* Increased vertical padding */
+        }
+
+        .navbar-brand {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .nav-link {
+            color: var(--secondary-color);
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-toggler-icon {
+            color: var(--secondary-color);
+            background-color: transparent;
+        }
+
+          /* Adjusting the h2 element to stand out more */
+          h2 {
+    font-size: 2.2rem; /* Smaller font size */
+    font-weight: 700; /* Bolder text */
+    text-transform: uppercase; /* Uppercase letters for emphasis */
+    margin-top: 0; /* Remove default margin-top */
+    margin-bottom: 15px; /* Adjusted bottom margin for better spacing */
+    padding-top: 10px; /* Adds some space at the top */
+    color: var(--primary-color); /* You can change this to a color of your choice */
+    letter-spacing: 1px; /* Adjusted letter spacing */
+}
+
+
+
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color); /* Dark background for footer */
+            color: var(--secondary-color); /* Light text for better readability */
+            text-align: center;
+            padding: 20px 10px; /* Reduced padding for a slimmer look */
+            border-top: 3px solid var(--accent-color); /* Bold top border for a defined separation */
+            font-size: 0.9rem; /* Slightly smaller text size */
+            margin-top: 20px; /* Adds a gap above the footer */
+            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1); /* Soft shadow to elevate */
+        }
+
+        .footer a {
+            color: var(--accent-color); /* Highlight links */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--secondary-color); /* Invert link color on hover */
+        }
+
+        .footer p {
+            margin: 0; /* Removes unnecessary margin */
+        }
+
+        .footer-small-gap {
+            height: 20px; /* Adds a small space to resemble a gap-like effect at the bottom */
+            background-color: var(--light-color); /* Slightly lighter background to blend smoothly */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .footer {
+                padding: 15px 5px; /* Reduce padding for smaller screens */
+                font-size: 0.8rem; /* Adjust font size for readability */
+            }
+        }
+    </style>
+</head>
+<body>
+    <?php session_start(); ?>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">MealMorph</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon text-white"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Ourplan.html">Plans</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Shopping.php">Shopping</a></li>
+                    <li class="nav-item"><a class="nav-link" href="add_feedback.php">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="My_profile.php">My Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.php">Log in</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<!-- Main Content -->
+<div class="container mt-5 pt-5">
+    <h2 class="text-center mb-4">Choose Your Meal Plan</h2>
+    <p class="text-center text-muted">Select the plan that fits your lifestyle and needs.</p>
+
+    <div class="row g-4">
+        <!-- Free Meal Plan -->
+        <div class="col-md-6">
+            <div class="card text-center p-4 border-0 shadow-lg">
+                <i class="fas fa-gift fa-3x mb-3"></i>
+                <h5 class="card-title">Free Meal Plan</h5>
+                <p class="card-text">Enjoy a variety of healthy meals without delivery.</p>
+                <ul class="text-start">
+                    <li><i class="fas fa-check-circle"></i> Free of charge</li>
+                    <li><i class="fas fa-utensils"></i> Access to meal recipes</li>
+                    <li><i class="fas fa-times-circle"></i> No delivery service</li>
+                </ul>
+                <a href="free.php" class="btn btn-outline-primary mt-3">Choose Free Plan</a>
+            </div>
+        </div>
+
+        <!-- Paid Meal Plan -->
+        <div class="col-md-6">
+            <div class="card text-center p-4 border-0 shadow-lg">
+                <i class="fas fa-hand-holding-usd fa-3x mb-3"></i>
+                <h5 class="card-title">Paid Meal Plan</h5>
+                <p class="card-text">Get home delivery and a personalized diet plan.</p>
+                <ul class="text-start">
+                    <li><i class="fas fa-truck"></i> Includes home delivery</li>
+                    <li><i class="fas fa-heart"></i> Customized diet plans</li>
+                    <li><i class="fas fa-dollar-sign"></i> Affordable pricing</li>
+                </ul>
+                <a href="paid.html" class="btn btn-outline-danger mt-3">Choose Paid Plan</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<footer class="footer">
+    <p>
+        &copy; 2025 MealMorph. Designed for healthier living. Follow us on
+        <a href="#">Facebook</a>, <a href="#">Instagram</a>, and <a href="#">Twitter</a>.
+    </p>
+    <p>Email: <a href="mailto:support@mealmorph.com">support@mealmorph.com</a></p>
+    <p>Phone: (+94) 123 456 789</p>
+    <p>Address: 123 MealMorph Street, Colombo, Sri Lanka</p>
+</footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
